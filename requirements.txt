@@ -1,0 +1,4 @@
+requests
+pygments
+pycairo
+pygobject

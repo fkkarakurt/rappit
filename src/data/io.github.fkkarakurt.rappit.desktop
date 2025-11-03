@@ -1,0 +1,35 @@
+[Desktop Entry]
+# --- Core Application Identity ---
+Name=Rappit
+Name[tr]=Rappit
+# Generic name helps with better search results and clarity
+GenericName=API Testing Tool
+GenericName[tr]=API Test Aracı
+Comment=A fast and lightweight tool for testing and interacting with various APIs (REST, SOAP).
+Comment[tr]=Çeşitli API'leri (REST, SOAP) test etmek ve bunlarla etkileşim kurmak için hızlı ve hafif bir araç.
+
+# --- Execution and Icon ---
+# The command to execute the application
+Exec=rappit
+# The icon name, usually following the Reverse Domain Name notation for Flatpak
+Icon=io.github.fkkarakurt.rappit
+# Specifies that this is an application
+Type=Application
+# Do not run the application in a terminal window
+Terminal=false
+# A standard specification to indicate application startup for feedback
+StartupNotify=true
+
+# --- Categorization and Keywords ---
+# Standard categories for development tools and GTK applications
+Categories=Development;Utility;GTK;
+# Keywords for enhanced searchability in application launchers
+Keywords=API;Testing;REST;HTTP;Developer;Tool;Debug;Web Service;
+
+# --- File Associations (MimeType) ---
+# Defines the file types Rappit can handle or is associated with
+MimeType=application/json;application/xml;text/html;text/plain;
+
+# --- Flatpak Specific (Optional but recommended for consistency) ---
+# If the app ID changed, this helps migration (as per the original request)
+X-Flatpak-RenamedFrom=rappit.desktop;

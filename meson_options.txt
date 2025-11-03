@@ -1,0 +1,1 @@
+option('buildtype', type: 'combo', choices: ['plain', 'debug', 'debugoptimized', 'release'], value: 'release', description: 'Build type')

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.fkkarakurt.rappit</id>
+
+  <name>Rappit</name>
+
+  <summary>Powerful REST &amp; SOAP API Testing Client</summary>
+  <summary xml:lang="tr">Güçlü REST ve SOAP API Test İstemcisi</summary>
+
+  <description>
+    <p>
+      Rappit is a <b>modern, open-source API testing and debugging client</b> built specifically for developers. Leveraging the power of Python and GTK4, it offers a seamless and native desktop experience for managing and testing web services.
+    </p>
+    <p>
+      <b>Key Features:</b>
+    </p>
+    <ul>
+      <li><b>Advanced Request Handling:</b> Compose and send HTTP/HTTPS requests (GET, POST, PUT, DELETE, etc.).</li>
+      <li><b>Smart Response Formatting:</b> Automatically prettifies and highlights JSON, XML, and HTML responses for readability.</li>
+      <li><b>History Management:</b> Keeps track of all previous API calls for easy re-testing.</li>
+      <li><b>Native Look and Feel:</b> Integrates perfectly with modern Linux desktop environments.</li>
+    </ul>
+
+    <p xml:lang="tr">
+      Rappit, geliştiriciler için özel olarak oluşturulmuş <b>modern, açık kaynaklı bir API test ve hata ayıklama istemcisidir</b>. Python ve GTK4'ün gücünden yararlanarak, web servislerini yönetmek ve test etmek için sorunsuz ve yerel bir masaüstü deneyimi sunar.
+    </p>
+    <p xml:lang="tr">
+      <b>Temel Özellikler:</b>
+    </p>
+    <ul xml:lang="tr">
+      <li><b>Gelişmiş İstek Yönetimi:</b> HTTP/HTTPS isteklerini (GET, POST, PUT, DELETE, vb.) oluşturun ve gönderin.</li>
+      <li><b>Akıllı Yanıt Formatlama:</b> JSON, XML ve HTML yanıtlarını okunabilirlik için otomatik olarak güzelleştirir ve vurgular.</li>
+      <li><b>Geçmiş Yönetimi:</b> Kolay yeniden test için önceki tüm API çağrılarını takip eder.</li>
+      <li><b>Yerel Görünüm:</b> Modern Linux masaüstü ortamlarıyla mükemmel bir şekilde bütünleşir.</li>
+    </ul>
+  </description>
+
+  <developer_name>Fatih Küçükkarakurt</developer_name>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <url type="homepage">https://github.com/fkkarakurt/rappit</url>
+  <url type="bugtracker">https://github.com/fkkarakurt/rappit/issues</url>
+  <url type="vcs-browser">https://github.com/fkkarakurt/rappit</url>
+
+  <keywords>
+    <keyword>rest</keyword>
+    <keyword>soap</keyword>
+    <keyword>http</keyword>
+    <keyword>testing</keyword>
+    <keyword>developer</keyword>
+    <keyword>web service</keyword>
+  </keywords>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/fkkarakurt/rappit/raw/main/screenshots/main.png</image>
+      <caption>Main request and response view.</caption>
+    </screenshot>
+  </screenshots>
+
+  <releases>
+    <release version="v1.0" date="2025-11-04">
+      <description>
+        <p>Initial stable release of Rappit, featuring core API testing functionalities.</p>
+        <p xml:lang="tr">Rappit'in temel API test işlevlerini içeren ilk kararlı sürümü.</p>
+      </description>
+    </release>
+  </releases>
+
+  <content_rating type="oars-1.1"/>
+</component>

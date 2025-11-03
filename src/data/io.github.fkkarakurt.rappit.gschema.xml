@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="io.github.fkkarakurt.rappit" path="/io/github/fkkarakurt/rappit/">
+    <key name="theme" type="s">
+      <default>'system'</default>
+      <summary>Application theme</summary>
+      <description>Theme preference: system, light, or dark</description>
+    </key>
+    <key name="font-family" type="s">
+      <default>'system'</default>
+      <summary>Font family for code editors</summary>
+      <description>Font family used in request/response editors</description>
+    </key>
+    <key name="font-size" type="i">
+      <default>13</default>
+      <summary>Font size for code editors</summary>
+      <description>Font size in pixels for request/response editors</description>
+    </key>
+    <key name="ssl-verification" type="b">
+      <default>true</default>
+      <summary>SSL certificate verification</summary>
+      <description>Verify SSL certificates for HTTPS requests</description>
+    </key>
+    <key name="auto-format-response" type="b">
+      <default>true</default>
+      <summary>Auto-format responses</summary>
+      <description>Automatically format JSON/XML responses</description>
+    </key>
+    <key name="save-history" type="b">
+      <default>true</default>
+      <summary>Save request history</summary>
+      <description>Save request history between sessions</description>
+    </key>
+    <key name="max-history-items" type="i">
+      <default>50</default>
+      <summary>Maximum history items</summary>
+      <description>Maximum number of history items to keep</description>
+    </key>
+    <key name="window-width" type="i">
+      <default>1200</default>
+      <summary>Window width</summary>
+      <description>Main window width in pixels</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>800</default>
+      <summary>Window height</summary>
+      <description>Main window height in pixels</description>
+    </key>
+    <key name="sidebar-position" type="i">
+      <default>300</default>
+      <summary>Sidebar position</summary>
+      <description>Sidebar width in pixels</description>
+    </key>
+  </schema>
+</schemalist>

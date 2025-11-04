@@ -1,117 +1,85 @@
-# Defines the project name, language, and global options.
+# Project definition
 project('rappit', 'python',
-    version: 'v1.0',
+    version: '1.0',
     license: 'AGPL-3.0',
     meson_version: '>=0.50.0',
     default_options: [
         'python.install_env=auto',
-        'buildtype=release'
     ]
 )
 
-# --- Configuration Variables ---
+# Configuration variables
 app_id = 'io.github.fkkarakurt.rappit'
-datadir = get_option('datadir')
-bindir = get_option('bindir')
-app_datadir = datadir / app_id
-pkgdatadir = get_option('prefix') / app_datadir
-
-# --- Dependencies ---
 python = import('python').find_installation('python3')
-
-# GTK and GNOME dependencies
-pygobject = dependency('pygobject-3.0', version: '>=3.42.0')
-pycairo = dependency('pycairo', version: '>=1.16.0')
-gtk4 = dependency('gtk4', version: '>=4.0.0')
-libadwaita = dependency('libadwaita-1', version: '>=1.0.0')
-gtksource = dependency('gtksourceview-5', version: '>=5.0.0')
-
-# GLib schemas for settings
 gnome = import('gnome')
 
-# Check for required Python modules
-python.check_dependency('requests', version: '>=2.25.0')
-python.check_dependency('pygments', version: '>=2.7.0')
+# Dependencies
+pygobject_dep = dependency('pygobject-3.0', version: '>=3.42.0')
+gtk4_dep = dependency('gtk4', version: '>=4.0.0')
+libadwaita_dep = dependency('libadwaita-1', version: '>=1.0.0')
+gtksource_dep = dependency('gtksourceview-5', version: '>=5.0.0')
 
-# --- Compile GSettings schemas ---
-gnome.compile_schemas()
+# Installation directories
+prefix = get_option('prefix')
+bindir = prefix / get_option('bindir')
+datadir = prefix / get_option('datadir')
+pkgdatadir = datadir / app_id
+schemadir = datadir / 'glib-2.0' / 'schemas'
 
-# --- Installation Steps ---
-
-# 1. Install the main execution script
-install_data(
-    'run.py',
+# Install main executable
+configure_file(
+    input: 'run.py',
+    output: 'rappit',
+    copy: true,
+    install: true,
     install_dir: bindir,
-    install_mode: 'rwxr-xr-x',
-    rename: 'rappit'
+    install_mode: 'rwxr-xr-x'
 )
 
-# 2. Install the application's source code and data files
+# Install Python source code
 install_subdir(
     'src',
-    install_dir: app_datadir,
+    install_dir: pkgdatadir,
     exclude_directories: ['__pycache__'],
     strip_directory: true
 )
 
-# 3. Install GSettings schema
+# Install GSettings schema
 install_data(
     'src/data/io.github.fkkarakurt.rappit.gschema.xml',
-    install_dir: datadir / 'glib-2.0/schemas'
+    install_dir: schemadir
 )
 
-# 4. Install Desktop Integration Files
+# Compile GSettings schemas
+gnome.compile_schemas()
 
-# Desktop Entry
+# Desktop integration
 install_data(
     'src/data/io.github.fkkarakurt.rappit.desktop',
     install_dir: datadir / 'applications'
 )
 
-# AppStream Metainfo
 install_data(
     'src/data/io.github.fkkarakurt.rappit.metainfo.xml',
     install_dir: datadir / 'metainfo'
 )
 
-# 5. Install Icons
-
-# Hicolor icon directory
-icon_dir = datadir / 'icons/hicolor'
-
-# Scalable icon
+# Icons
 install_data(
     'src/data/icons/hicolor/scalable/apps/io.github.fkkarakurt.rappit.svg',
-    install_dir: icon_dir / 'scalable/apps'
+    install_dir: datadir / 'icons/hicolor/scalable/apps'
 )
 
-# Symbolic icon
 install_data(
     'src/data/icons/hicolor/symbolic/apps/io.github.fkkarakurt.rappit-symbolic.svg',
-    install_dir: icon_dir / 'symbolic/apps'
+    install_dir: datadir / 'icons/hicolor/symbolic/apps'
 )
 
-# 6. Install UI files
+# UI files
 install_data(
     'src/data/gtk/help-overlay.ui',
-    install_dir: app_datadir / 'gtk'
+    install_dir: pkgdatadir / 'gtk'
 )
 
-# 7. Install bundled fonts (if any)
-if run_command('test', '-d', 'fonts', check: false).returncode() == 0
-    install_subdir(
-        'fonts',
-        install_dir: app_datadir
-    )
-endif
-
-# --- Post-install script for GSettings schema ---
+# Post-install script for schema compilation
 meson.add_install_script('post_install.py')
-
-# --- Print installation summary ---
-message('')
-message('Rappit will be installed to:')
-message('  Binary: ' + get_option('prefix') / bindir / 'rappit')
-message('  Data: ' + pkgdatadir)
-message('  Schemas: ' + get_option('prefix') / datadir / 'glib-2.0/schemas')
-message('')

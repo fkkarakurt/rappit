@@ -65,4 +65,4 @@ modules:
     sources:
       - type: archive
         url: https://github.com/fkkarakurt/rappit/archive/refs/tags/v1.0.tar.gz
-        sha256: 29daa972de588847624293de139ea17575cb24dcfc8aa4e461ac333dcc93f77e
+        sha256: b1a68afd107766ae78f9f664e604820995419d8cc92143efab16bb1d3f9752c4

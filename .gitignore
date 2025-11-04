@@ -28,6 +28,7 @@ MANIFEST
 *-dir
 *-repo
 *.flatpak
+*-generator.*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

@@ -11,20 +11,31 @@ finish-args:
   - --device=dri
 
 modules:
-  - name: rappit
-    buildsystem: meson
-    build-options:
-      env:
-        PYTHON: /usr/bin/python3
-
-    config-opts:
-      - --prefix=/app
-      - -Dbuildtype=release
-
+  - name: python3-requests
+    buildsystem: simple
     build-commands:
-      - find src/app -name "*.py" -exec python3 -m py_compile {} \; || true
+      - pip3 install --prefix=/app --no-deps requests==2.32.5
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/py3/r/requests/requests-2.32.5-py3-none-any.whl
+        sha256: 2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6
+
+  - name: rappit
+    buildsystem: simple
+    build-commands:
+      - find . -name "*.py" -exec python3 -m py_compile {} \; || true
+      - install -Dm755 run.py /app/bin/rappit
+      - cp -r src /app/bin/
+      - install -Dm644 src/data/io.github.fkkarakurt.rappit.desktop /app/share/applications/io.github.fkkarakurt.rappit.desktop
+      - install -Dm644 src/data/io.github.fkkarakurt.rappit.metainfo.xml /app/share/metainfo/io.github.fkkarakurt.rappit.metainfo.xml
+      - install -Dm644 src/data/icons/hicolor/scalable/apps/io.github.fkkarakurt.rappit.svg /app/share/icons/hicolor/scalable/apps/io.github.fkkarakurt.rappit.svg
+      - install -Dm644 src/data/icons/hicolor/symbolic/apps/io.github.fkkarakurt.rappit-symbolic.svg /app/share/icons/hicolor/symbolic/apps/io.github.fkkarakurt.rappit-symbolic.svg
+      - mkdir -p /app/share/rappit/gtk
+      - install -Dm644 src/data/gtk/help-overlay.ui /app/share/rappit/gtk/help-overlay.ui
+      - install -Dm644 src/data/io.github.fkkarakurt.rappit.gschema.xml /app/share/glib-2.0/schemas/io.github.fkkarakurt.rappit.gschema.xml
+      - glib-compile-schemas /app/share/glib-2.0/schemas
 
     sources:
       - type: archive
         url: https://github.com/fkkarakurt/rappit/archive/refs/tags/v1.0.tar.gz
-        sha256: a498e71f73885b783eeb753c4c32a481e77c31bd3a973c412be585364559dee3
+        sha256: xxx

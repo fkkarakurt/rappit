@@ -6,7 +6,7 @@ gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('Gio', '2.0')
 
-from gi.repository import Gtk, Adw, Gio, Gdk
+from gi.repository import Gtk, Adw, Gio
 # Import the main application window (assuming it's in the same module path)
 from .window import MainWindow
 

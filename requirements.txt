@@ -1,4 +1,0 @@
-requests
-pygments
-pycairo
-pygobject

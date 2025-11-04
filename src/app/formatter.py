@@ -1,7 +1,6 @@
 import json
 import xml.dom.minidom
 import re
-from html import escape
 
 class Formatter:
     """

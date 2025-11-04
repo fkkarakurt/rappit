@@ -6,7 +6,7 @@ gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('GtkSource', '5')
 
-from gi.repository import Gtk, Adw, Gio, GLib, Gdk
+from gi.repository import Gtk, Adw, Gio, GLib
 from .headers_panel import HeadersPanel
 from .request_handler import RequestHandler
 from .syntax_highlighter import SyntaxHighlighter

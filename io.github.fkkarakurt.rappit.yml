@@ -22,4 +22,4 @@ modules:
     sources:
       - type: archive
         url: https://github.com/fkkarakurt/rappit/archive/refs/tags/v1.0.tar.gz
-        sha256: xxx
+        sha256: b8931fb8e387bf7e7faffaf321b063d241a6b99606c0752575b006313397bbbb

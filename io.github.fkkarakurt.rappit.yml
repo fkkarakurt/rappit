@@ -16,7 +16,7 @@ modules:
     build-commands:
       - pip3 install --prefix=/app --no-deps requests==2.32.5
     sources:
-      - type: archive
+      - type: file
         url: https://files.pythonhosted.org/packages/py3/r/requests/requests-2.32.5-py3-none-any.whl
         sha256: 2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6
 

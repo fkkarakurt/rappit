@@ -13,13 +13,18 @@ finish-args:
 modules:
   - name: rappit
     buildsystem: meson
+    build-options:
+      env:
+        PYTHON: /usr/bin/python3
+
     config-opts:
       - --prefix=/app
       - -Dbuildtype=release
+
     build-commands:
-      - pip3 install --prefix=/app requests==2.32.5
-      - pip3 install --prefix=/app Pygments==2.19.2
+      - find src/app -name "*.py" -exec python3 -m py_compile {} \; || true
+
     sources:
       - type: archive
         url: https://github.com/fkkarakurt/rappit/archive/refs/tags/v1.0.tar.gz
-        sha256: b8931fb8e387bf7e7faffaf321b063d241a6b99606c0752575b006313397bbbb
+        sha256: xxx
